@@ -8,250 +8,185 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-
 body{
-background: linear-gradient(135deg,#0f172a,#020617);
-color:white;
-scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
+margin:0;
+background:#f8fafc;
+color:#1e293b;
 }
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+position:sticky;
+top:0;
+}
+nav a{margin-left:20px;text-decoration:none;color:#1e293b;font-weight:500;}
+nav a:hover{color:#2563eb;}
 
 /* HERO */
 header{
-height:100vh;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
-text-align:center;
-background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f') center/cover;
+justify-content:space-between;
+padding:80px 10%;
+background:linear-gradient(135deg,#2563eb,#1e40af);
+color:white;
 }
-
-header h1{
-font-size:55px;
-background: linear-gradient(90deg,#38bdf8,#818cf8);
--webkit-background-clip:text;
-color:transparent;
+header img{
+width:300px;
+border-radius:20px;
 }
-
-header p{
-font-size:18px;
-margin-top:10px;
-max-width:700px;
-}
+header h1{font-size:40px;}
+header p{max-width:500px;}
 
 /* SECTION */
 section{
-padding:80px 10%;
+padding:70px 10%;
 }
-
 h2{
-font-size:32px;
-margin-bottom:30px;
-border-left:5px solid #38bdf8;
-padding-left:15px;
-}
-
-/* GLASS CARD */
-.card{
-background: rgba(255,255,255,0.05);
-backdrop-filter: blur(12px);
-padding:20px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
-transition:0.4s;
-}
-
-.card:hover{
-transform:translateY(-10px) scale(1.02);
+text-align:center;
+margin-bottom:40px;
+color:#1e3a8a;
 }
 
 /* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
 }
 
-/* SKILLS BAR */
-.skill{
-margin-bottom:15px;
+/* CARD */
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+transition:0.3s;
 }
-.bar{
-height:10px;
-background:#1e293b;
-border-radius:20px;
-overflow:hidden;
-}
-.fill{
-height:100%;
-background:linear-gradient(90deg,#38bdf8,#6366f1);
-}
+.card:hover{transform:translateY(-8px);}
 
-/* PROJECT */
-.project img{
+/* ARTIFACT */
+.artifact img{
 width:100%;
 border-radius:10px;
-margin-bottom:10px;
+margin-bottom:15px;
 }
 
 /* FOOTER */
 footer{
+background:#1e293b;
+color:white;
 text-align:center;
-padding:30px;
-background:#020617;
+padding:20px;
 }
-
-/* BUTTON */
-.btn{
-display:inline-block;
-padding:10px 20px;
-background:#38bdf8;
-border-radius:20px;
-color:black;
-margin-top:10px;
-text-decoration:none;
-}
-
-/* SMALL TEXT */
-p{line-height:1.6;}
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
+<nav>
+<h3>Satish</h3>
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#artifacts">Artifacts</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
 <!-- HERO -->
 <header>
+<div>
 <h1>Satish Padmanabuni</h1>
-<p>AI/ML Engineer | Full Stack Developer | Building Intelligent Systems with Real-World Impact</p>
+<p>Full Stack Developer transitioning into AI/ML Engineer, building intelligent systems, anomaly detection solutions, and AI-driven applications.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1537432376769-00a0a1a0c7e3">
 </header>
 
 <!-- ABOUT -->
-<section>
+<section id="about">
 <h2>About Me</h2>
 <div class="card">
 <p>
-I am a Full Stack Developer transitioning into an AI/ML Engineer, focused on building intelligent, scalable, and real-world systems. My goal is to develop AI copilots, anomaly detection systems, and data-driven solutions that improve decision-making and business efficiency.  
-With 5+ years of experience in React, Java, Spring Boot, AWS, and Microservices, I bring strong system design expertise combined with growing AI capabilities.
+I am a Full Stack Developer with 5+ years of experience in building scalable applications using React, Java, Spring Boot, and AWS. My goal is to become a Generative AI Engineer by combining my development experience with AI/ML skills. I focus on building real-world AI solutions such as chatbots, anomaly detection systems, and data-driven applications that improve business outcomes.
 </p>
 </div>
 </section>
 
 <!-- SKILLS -->
-<section>
-<h2>Technical Skills</h2>
+<section id="skills">
+<h2>Skills</h2>
 <div class="grid">
-
-<div class="card">
-<h3>AI / ML</h3>
-<div class="skill">Machine Learning<div class="bar"><div class="fill" style="width:90%"></div></div></div>
-<div class="skill">Data Analysis<div class="bar"><div class="fill" style="width:88%"></div></div></div>
-<div class="skill">Python<div class="bar"><div class="fill" style="width:85%"></div></div></div>
-</div>
-
-<div class="card">
-<h3>Frontend</h3>
-<p>React, Angular, HTML, CSS, Redux</p>
-</div>
-
-<div class="card">
-<h3>Backend</h3>
-<p>Java, Spring Boot, Node.js, Microservices</p>
-</div>
-
-<div class="card">
-<h3>Cloud</h3>
-<p>AWS, Docker, Kubernetes, CI/CD</p>
-</div>
-
+<div class="card"><b>Frontend:</b><br>React, Angular, HTML, CSS</div>
+<div class="card"><b>Backend:</b><br>Java, Spring Boot, Node.js</div>
+<div class="card"><b>Cloud:</b><br>AWS, Docker, Kubernetes</div>
+<div class="card"><b>AI/ML:</b><br>Python, ML Concepts, Data Analysis</div>
 </div>
 </section>
 
 <!-- ARTIFACTS -->
-<section>
-<h2>AI/ML Portfolio Artifacts</h2>
+<section id="artifacts">
+<h2>Portfolio Artifacts</h2>
 <div class="grid">
 
-<!-- ARTIFACT 1 -->
-<div class="card project">
+<!-- Artifact 1 -->
+<div class="card artifact">
 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
-<h3>Artifact 1: AI/ML Timeline</h3>
+<h3>AI/ML Timeline</h3>
 <p><b>Objective:</b> Track learning journey</p>
-<p><b>Tools:</b> Research, Planning</p>
-<p><b>Value:</b> Shows structured AI career growth</p>
-<a class="btn" href="https://claude.ai/public/artifacts/50ec449b-a242-4d48-bad4-ad53ae4cb503" target="_blank">View</a>
+<p><b>Tools:</b> Research</p>
+<p><b>Value:</b> Shows structured AI growth</p>
 </div>
 
-<!-- ARTIFACT 2 -->
-<div class="card project">
+<!-- Artifact 2 -->
+<div class="card artifact">
 <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a">
-<h3>Artifact 2: Habit Tracker Chatbot</h3>
-<p><b>Objective:</b> AI-based habit tracking</p>
-<p><b>Tools:</b> Python, Chatbot Logic</p>
-<p><b>Value:</b> Real-world AI assistant application</p>
-<a class="btn" href="https://chatgpt.com/share/69ac9270-d678-800e-ad03-0c3fa9f6428a" target="_blank">View</a>
+<h3>Habit Tracker Chatbot</h3>
+<p><b>Objective:</b> AI chatbot for tracking habits</p>
+<p><b>Tools:</b> Python</p>
+<p><b>Value:</b> Real-world AI assistant</p>
 </div>
 
-<!-- ARTIFACT 3 -->
-<div class="card project">
+<!-- Artifact 3 -->
+<div class="card artifact">
 <img src="https://images.unsplash.com/photo-1551434678-e076c223a692">
-<h3>Artifact 3: AI Research (STORM)</h3>
+<h3>AI Research (STORM)</h3>
 <p><b>Objective:</b> AI-assisted research</p>
-<p><b>Tools:</b> STORM AI, ChatGPT</p>
-<p><b>Value:</b> Data-driven insights + AI thinking</p>
+<p><b>Tools:</b> STORM AI</p>
+<p><b>Value:</b> Data-driven insights</p>
 </div>
 
-<!-- ARTIFACT 4 -->
-<div class="card project">
+<!-- Artifact 4 -->
+<div class="card artifact">
 <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789">
-<h3>Artifact 4: Real-Time Anomaly Detection</h3>
-<p><b>Objective:</b> Detect failures in sensor data</p>
-<p><b>Process:</b> PCA + Autoencoder + Streaming</p>
+<h3>Real-Time Anomaly Detection</h3>
+<p><b>Objective:</b> Detect failures in streaming sensor data</p>
+<p><b>Process:</b> PCA + Autoencoder + Real-time pipeline</p>
 <p><b>Tools:</b> Python, TensorFlow, Flask, Docker</p>
-<p><b>Value:</b> Real-time AI system + deployment</p>
-</div>
-
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section>
-<h2>Professional Experience</h2>
-<div class="grid">
-
-<div class="card">
-<h3>Cleveland Cliffs</h3>
-<p>Full Stack Developer</p>
-<p>Microservices, Kafka, AWS, CI/CD</p>
-</div>
-
-<div class="card">
-<h3>Ben E Keith</h3>
-<p>React Developer</p>
-<p>SPA apps, Redux, Testing</p>
-</div>
-
-<div class="card">
-<h3>Telcocrats</h3>
-<p>Web Developer</p>
-<p>Spring Boot, REST APIs</p>
+<p><b>Value:</b> Demonstrates real-time AI system deployment and handling of high-dimensional data</p>
 </div>
 
 </div>
 </section>
 
 <!-- CONTACT -->
-<section>
+<section id="contact">
 <h2>Contact</h2>
 <div class="card">
 <p>Email: satish.padmanabuni@myemail.indwes.edu</p>
-<p>GitHub: <a href="https://github.com/Satishqw" target="_blank">Satishqw</a></p>
+<p>GitHub: <a href="https://github.com/Satishqw">github.com/Satishqw</a></p>
 </div>
 </section>
 
 <footer>
-<p>© 2026 Satish Padmanabuni | AI Portfolio</p>
+<p>© 2026 Satish Padmanabuni</p>
 </footer>
 
 </body>
