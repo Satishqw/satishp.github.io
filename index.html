@@ -8,83 +8,123 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
 body{
-font-family:'Poppins',sans-serif;
-margin:0;
-background:#f8fafc;
-color:#1e293b;
+background:linear-gradient(135deg,#0f172a,#020617);
+color:white;
+overflow-x:hidden;
 }
 
 /* NAV */
 nav{
-display:flex;
-justify-content:space-between;
-padding:20px 10%;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-position:sticky;
-top:0;
+position:fixed;width:100%;top:0;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+padding:10px 20px;
+display:flex;justify-content:space-between;
+z-index:1000;
 }
-nav a{margin-left:20px;text-decoration:none;color:#1e293b;font-weight:500;}
-nav a:hover{color:#2563eb;}
+nav a{
+color:#38bdf8;margin:0 10px;
+text-decoration:none;font-size:14px;
+}
 
 /* HERO */
-header{
+.hero{
+height:90vh;
 display:flex;
+flex-direction:column;
+justify-content:center;
 align-items:center;
-justify-content:space-between;
-padding:80px 10%;
-background:linear-gradient(135deg,#2563eb,#1e40af);
-color:white;
+text-align:center;
+background:radial-gradient(circle at center,#1e293b,#020617);
 }
-header img{
-width:300px;
-border-radius:20px;
-}
-header h1{font-size:40px;}
-header p{max-width:500px;}
+.hero h1{font-size:50px;}
+.hero span{color:#38bdf8;}
+.hero p{margin-top:10px;font-size:18px;color:#cbd5f5;}
 
 /* SECTION */
-section{
-padding:70px 10%;
+section{padding:70px 8%;}
+
+/* GLASS CARD */
+.card{
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+padding:20px;
+backdrop-filter:blur(12px);
+transition:0.3s;
 }
-h2{
-text-align:center;
-margin-bottom:40px;
-color:#1e3a8a;
-}
+.card:hover{transform:scale(1.04);}
 
 /* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
 }
 
-/* CARD */
-.card{
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.08);
-transition:0.3s;
+/* TITLES */
+h2{
+color:#38bdf8;
+margin-bottom:20px;
 }
-.card:hover{transform:translateY(-8px);}
 
-/* ARTIFACT */
-.artifact img{
+/* PIPELINE */
+.pipeline{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+justify-content:center;
+}
+.pipe{
+background:#38bdf8;
+padding:12px 18px;
+border-radius:20px;
+color:black;
+font-weight:bold;
+}
+
+/* DASHBOARD */
+.metric{
+font-size:28px;
+color:#38bdf8;
+}
+
+/* CHATBOT */
+.chatbot{
+position:fixed;
+bottom:20px;
+right:20px;
+width:280px;
+background:#020617;
+border-radius:15px;
+padding:10px;
+box-shadow:0 0 15px #38bdf8;
+}
+.chatbot input{
 width:100%;
-border-radius:10px;
-margin-bottom:15px;
+padding:8px;
+border:none;
+outline:none;
+margin-top:5px;
 }
 
 /* FOOTER */
 footer{
-background:#1e293b;
-color:white;
 text-align:center;
 padding:20px;
+background:#020617;
+margin-top:30px;
 }
+
+/* ANIMATION */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+.fade.show{opacity:1;transform:translateY(0);}
 </style>
 </head>
 
@@ -92,102 +132,156 @@ padding:20px;
 
 <!-- NAV -->
 <nav>
-<h3>Satish</h3>
+<div>Satish AI Portfolio</div>
 <div>
 <a href="#about">About</a>
-<a href="#skills">Skills</a>
 <a href="#artifacts">Artifacts</a>
+<a href="#dashboard">Dashboard</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
 
 <!-- HERO -->
-<header>
-<div>
-<h1>Satish Padmanabuni</h1>
-<p>Full Stack Developer transitioning into AI/ML Engineer, building intelligent systems, anomaly detection solutions, and AI-driven applications.</p>
+<div class="hero">
+<h1>Satish <span>Padmanabuni</span></h1>
+<p>AI | Machine Learning | Generative AI Engineer</p>
+<p>Building Intelligent Systems & Data-Driven Solutions</p>
 </div>
-<img src="https://images.unsplash.com/photo-1537432376769-00a0a1a0c7e3">
-</header>
 
 <!-- ABOUT -->
-<section id="about">
+<section id="about" class="fade">
 <h2>About Me</h2>
 <div class="card">
 <p>
-I am a Full Stack Developer with 5+ years of experience in building scalable applications using React, Java, Spring Boot, and AWS. My goal is to become a Generative AI Engineer by combining my development experience with AI/ML skills. I focus on building real-world AI solutions such as chatbots, anomaly detection systems, and data-driven applications that improve business outcomes.
+I am a Full Stack Developer transitioning into AI/ML Engineering with a focus on Generative AI,
+analytics, and intelligent systems. My goal is to build scalable AI solutions that solve real-world problems,
+enhance decision-making, and deliver measurable business value.
 </p>
 </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-<h2>Skills</h2>
+<!-- ARTIFACTS -->
+<section id="artifacts" class="fade">
+<h2>Portfolio Artifacts</h2>
+
 <div class="grid">
-<div class="card"><b>Frontend:</b><br>React, Angular, HTML, CSS</div>
-<div class="card"><b>Backend:</b><br>Java, Spring Boot, Node.js</div>
-<div class="card"><b>Cloud:</b><br>AWS, Docker, Kubernetes</div>
-<div class="card"><b>AI/ML:</b><br>Python, ML Concepts, Data Analysis</div>
+
+<div class="card">
+<h3>Artifact 1: AI/ML Timeline</h3>
+<p>Learning roadmap and AI growth plan.</p>
+<a href="#">View Artifact</a>
+</div>
+
+<div class="card">
+<h3>Artifact 2: AI Habit Tracker</h3>
+<p>Chatbot-based health tracking system.</p>
+<a href="#">View Artifact</a>
+</div>
+
+<div class="card">
+<h3>Artifact 3: AI Research (STORM)</h3>
+<p>AI-driven brainstorming & research insights.</p>
+<a href="#">View Artifact</a>
+</div>
+
+<div class="card">
+<h3>🚀 Artifact 4: ML Pipeline System</h3>
+
+<p><b>Objective:</b> Build scalable ML pipeline</p>
+
+<div class="pipeline">
+<div class="pipe">Data</div>
+<div class="pipe">Cleaning</div>
+<div class="pipe">Features</div>
+<div class="pipe">Model</div>
+<div class="pipe">Deploy</div>
+</div>
+
+<p style="margin-top:10px;">
+Shows real-world ML system design thinking.
+</p>
+
+</div>
+
 </div>
 </section>
 
-<!-- ARTIFACTS -->
-<section id="artifacts">
-<h2>Portfolio Artifacts</h2>
+<!-- DASHBOARD -->
+<section id="dashboard" class="fade">
+<h2>📊 Live ML Dashboard</h2>
+
 <div class="grid">
-
-<!-- Artifact 1 -->
-<div class="card artifact">
-<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
-<h3>AI/ML Timeline</h3>
-<p><b>Objective:</b> Track learning journey</p>
-<p><b>Tools:</b> Research</p>
-<p><b>Value:</b> Shows structured AI growth</p>
+<div class="card">
+<h3>Accuracy</h3>
+<div class="metric">92%</div>
 </div>
 
-<!-- Artifact 2 -->
-<div class="card artifact">
-<img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a">
-<h3>Habit Tracker Chatbot</h3>
-<p><b>Objective:</b> AI chatbot for tracking habits</p>
-<p><b>Tools:</b> Python</p>
-<p><b>Value:</b> Real-world AI assistant</p>
+<div class="card">
+<h3>Precision</h3>
+<div class="metric">89%</div>
 </div>
 
-<!-- Artifact 3 -->
-<div class="card artifact">
-<img src="https://images.unsplash.com/photo-1551434678-e076c223a692">
-<h3>AI Research (STORM)</h3>
-<p><b>Objective:</b> AI-assisted research</p>
-<p><b>Tools:</b> STORM AI</p>
-<p><b>Value:</b> Data-driven insights</p>
+<div class="card">
+<h3>Recall</h3>
+<div class="metric">95%</div>
+</div>
 </div>
 
-<!-- Artifact 4 -->
-<div class="card artifact">
-<img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789">
-<h3>Real-Time Anomaly Detection</h3>
-<p><b>Objective:</b> Detect failures in streaming sensor data</p>
-<p><b>Process:</b> PCA + Autoencoder + Real-time pipeline</p>
-<p><b>Tools:</b> Python, TensorFlow, Flask, Docker</p>
-<p><b>Value:</b> Demonstrates real-time AI system deployment and handling of high-dimensional data</p>
-</div>
-
-</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-<h2>Contact</h2>
+<section id="contact" class="fade">
+<h2>Let’s Connect</h2>
+
 <div class="card">
-<p>Email: satish.padmanabuni@myemail.indwes.edu</p>
-<p>GitHub: <a href="https://github.com/Satishqw">github.com/Satishqw</a></p>
+<p><b>Name:</b> Satish Padanabuni</p>
+<p><b>Role:</b> Developer</p>
+<p><b>Email:</b> satish.padmanabuni@myemail.indwes.edu</p>
+<p><b>GitHub:</b> https://github.com/Satishqw</p>
+<p><b>Focus:</b> Analytics, AI, and Generative AI Engineering</p>
 </div>
+
 </section>
 
+<!-- CHATBOT -->
+<div class="chatbot">
+<div><b>🤖 AI Assistant</b></div>
+<div id="chat"></div>
+<input id="input" placeholder="Ask me..." onkeypress="talk(event)">
+</div>
+
 <footer>
-<p>© 2026 Satish Padmanabuni</p>
+<p>© 2026 Satish Padmanabuni | AI Portfolio</p>
 </footer>
+
+<script>
+// animation
+const faders=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+faders.forEach(el=>{
+const top=el.getBoundingClientRect().top;
+if(top<window.innerHeight-100){el.classList.add('show');}
+});
+});
+
+// chatbot
+function talk(e){
+if(e.key==='Enter'){
+let input=document.getElementById('input').value;
+let chat=document.getElementById('chat');
+
+let reply="I help explain AI, ML, and your portfolio projects.";
+
+if(input.toLowerCase().includes("artifact"))
+reply="Artifacts show real AI/ML skills with projects.";
+
+chat.innerHTML+=`<div>👤 ${input}</div>`;
+chat.innerHTML+=`<div>🤖 ${reply}</div>`;
+
+document.getElementById('input').value="";
+}
+}
+</script>
 
 </body>
 </html>
