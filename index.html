@@ -3,284 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satish Padmanabuni | AI/ML Portfolio</title>
+<title>Satish Padmanabuni | AI & Full Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<!-- AOS for scroll animations -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<!-- Three.js -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  /* Reset & Base */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body{font-family: 'Roboto', sans-serif; color:white; overflow-x:hidden;}
 
-body{
-background:linear-gradient(135deg,#0f172a,#020617);
-color:white;
-overflow-x:hidden;
-}
+  /* Background Layers */
+  #bgCanvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; }
+  #particles-js { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
 
-/* NAV */
-nav{
-position:fixed;width:100%;top:0;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-padding:10px 20px;
-display:flex;justify-content:space-between;
-z-index:1000;
-}
-nav a{
-color:#38bdf8;margin:0 10px;
-text-decoration:none;font-size:14px;
-}
+  /* Header */
+  .hero {
+    height:90vh; display:flex; justify-content:center; align-items:center; text-align:center;
+    background: linear-gradient(-45deg,#0f172a,#1e293b,#020617,#1e293b);
+    background-size: 400% 400%;
+    animation: gradientBG 20s ease infinite;
+    position:relative;
+  }
+  @keyframes gradientBG { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
+  .hero h1 { font-size:50px; color:#38bdf8; text-shadow: 0 0 15px #38bdf8; margin-bottom:10px; }
+  .hero p { color:#cbd5f5; text-shadow: 0 0 8px #38bdf8; margin:5px; font-size:18px; }
 
-/* HERO */
-.hero{
-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:radial-gradient(circle at center,#1e293b,#020617);
-}
-.hero h1{font-size:50px;}
-.hero span{color:#38bdf8;}
-.hero p{margin-top:10px;font-size:18px;color:#cbd5f5;}
+  /* Sections */
+  section { padding:40px 20px; max-width:1200px; margin:auto; }
+  h2 { border-bottom:3px solid #38bdf8; padding-bottom:10px; margin-bottom:20px; }
 
-/* SECTION */
-section{padding:70px 8%;}
+  /* Cards & Grid */
+  .skills, .projects { display:grid; grid-gap:20px; }
+  .skills { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-bottom:40px; }
+  .projects { grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); margin-bottom:40px; }
+  .card, .project { background: rgba(30,41,59,0.9); padding:20px; border-radius:12px; transition: transform 0.3s, box-shadow 0.3s; }
+  .card:hover, .project:hover { transform:scale(1.05); box-shadow: 0 0 20px #38bdf8; }
+  img{width:100%; border-radius:8px; margin-bottom:10px;}
+  a{color:#38bdf8; text-decoration:none;}
+  a:hover{text-decoration:underline;}
 
-/* GLASS CARD */
-.card{
-background:rgba(255,255,255,0.05);
-border-radius:15px;
-padding:20px;
-backdrop-filter:blur(12px);
-transition:0.3s;
-}
-.card:hover{transform:scale(1.04);}
+  /* Artifact Progress Bars */
+  .progress-container { background:#ddd; width:100%; border-radius:5px; margin-bottom:10px; }
+  .progress { background:#4CAF50; color:white; padding:5px; border-radius:5px; text-align:center; }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
-
-/* TITLES */
-h2{
-color:#38bdf8;
-margin-bottom:20px;
-}
-
-/* PIPELINE */
-.pipeline{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-justify-content:center;
-}
-.pipe{
-background:#38bdf8;
-padding:12px 18px;
-border-radius:20px;
-color:black;
-font-weight:bold;
-}
-
-/* DASHBOARD */
-.metric{
-font-size:28px;
-color:#38bdf8;
-}
-
-/* CHATBOT */
-.chatbot{
-position:fixed;
-bottom:20px;
-right:20px;
-width:280px;
-background:#020617;
-border-radius:15px;
-padding:10px;
-box-shadow:0 0 15px #38bdf8;
-}
-.chatbot input{
-width:100%;
-padding:8px;
-border:none;
-outline:none;
-margin-top:5px;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-background:#020617;
-margin-top:30px;
-}
-
-/* ANIMATION */
-.fade{
-opacity:0;
-transform:translateY(40px);
-transition:0.8s;
-}
-.fade.show{opacity:1;transform:translateY(0);}
+  /* Contact */
+  .contact p, .contact a { margin:5px 0; font-size:16px; }
 </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-<div>Satish AI Portfolio</div>
-<div>
-<a href="#about">About</a>
-<a href="#artifacts">Artifacts</a>
-<a href="#dashboard">Dashboard</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
+<!-- 3D Canvas -->
+<canvas id="bgCanvas"></canvas>
+<!-- Particle Background -->
+<div id="particles-js"></div>
 
-<!-- HERO -->
-<div class="hero">
-<h1>Satish <span>Padmanabuni</span></h1>
-<p>AI | Machine Learning | Generative AI Engineer</p>
-<p>Building Intelligent Systems & Data-Driven Solutions</p>
-</div>
+<!-- Hero Section -->
+<header class="hero" data-aos="fade-down">
+  <div>
+    <h1>Satish Padmanabuni</h1>
+    <p>AI & Full Stack Developer | Generative AI Engineer</p>
+    <p>Focus: Analytics, AI, and Generative AI Engineering</p>
+  </div>
+</header>
 
-<!-- ABOUT -->
-<section id="about" class="fade">
-<h2>About Me</h2>
-<div class="card">
-<p>
-I am a Full Stack Developer transitioning into AI/ML Engineering with a focus on Generative AI,
-analytics, and intelligent systems. My goal is to build scalable AI solutions that solve real-world problems,
-enhance decision-making, and deliver measurable business value.
-</p>
-</div>
+<!-- About Me -->
+<section data-aos="fade-up">
+  <h2>About Me</h2>
+  <p>
+  I aim to become a Generative AI Engineer, building intelligent assistants and retrieval-driven systems combining AI, data, and business context. With 5+ years of experience in full-stack development using React, Java, Spring Boot, Node.js, and AWS, I design scalable microservices, CI/CD pipelines, and cloud-based architectures. I am passionate about integrating AI/ML into practical solutions that enhance decision-making and business impact. My portfolio reflects my growth from enterprise development to AI/ML solution design.
+  </p>
 </section>
 
-<!-- ARTIFACTS -->
-<section id="artifacts" class="fade">
-<h2>Portfolio Artifacts</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Artifact 1: AI/ML Timeline</h3>
-<p>Learning roadmap and AI growth plan.</p>
-<a href="#">View Artifact</a>
-</div>
-
-<div class="card">
-<h3>Artifact 2: AI Habit Tracker</h3>
-<p>Chatbot-based health tracking system.</p>
-<a href="#">View Artifact</a>
-</div>
-
-<div class="card">
-<h3>Artifact 3: AI Research (STORM)</h3>
-<p>AI-driven brainstorming & research insights.</p>
-<a href="#">View Artifact</a>
-</div>
-
-<div class="card">
-<h3>🚀 Artifact 4: ML Pipeline System</h3>
-
-<p><b>Objective:</b> Build scalable ML pipeline</p>
-
-<div class="pipeline">
-<div class="pipe">Data</div>
-<div class="pipe">Cleaning</div>
-<div class="pipe">Features</div>
-<div class="pipe">Model</div>
-<div class="pipe">Deploy</div>
-</div>
-
-<p style="margin-top:10px;">
-Shows real-world ML system design thinking.
-</p>
-
-</div>
-
-</div>
+<!-- Technical Skills -->
+<section data-aos="fade-up">
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div class="card">Frontend: React.js, Angular, HTML5, CSS3, Redux, Bootstrap, AJAX</div>
+    <div class="card">Backend: Java 8, Spring Boot, Node.js, REST APIs, Microservices</div>
+    <div class="card">Cloud & DevOps: AWS, Docker, Kubernetes, Jenkins, CI/CD</div>
+    <div class="card">Databases: MongoDB, PostgreSQL, MySQL, Oracle, Cassandra</div>
+    <div class="card">Testing & Tools: JUnit, Mockito, Jest, Jasmine, Git, Bitbucket</div>
+  </div>
 </section>
 
-<!-- DASHBOARD -->
-<section id="dashboard" class="fade">
-<h2>📊 Live ML Dashboard</h2>
+<!-- Artifact Portfolio -->
+<section data-aos="fade-up">
+  <h2>Artifact Portfolio Projects</h2>
+  <div class="projects">
+    <!-- Artifact 1 -->
+    <div class="project">
+      <h3>Artifact 1: AI/ML Timeline</h3>
+      <p><b>Objective:</b> Document AI/ML learning journey.</p>
+      <p><b>Tools Used:</b> Research, Self-Assessment</p>
+      <p><b>Description:</b> Roadmap outlining learning goals, skill development plan, and future AI career direction.</p>
+      <p>Link: <a href="https://claude.ai/public/artifacts/50ec449b-a242-4d48-bad4-ad53ae4cb503" target="_blank">View Artifact 1</a></p>
+    </div>
 
-<div class="grid">
-<div class="card">
-<h3>Accuracy</h3>
-<div class="metric">92%</div>
-</div>
+    <!-- Artifact 2 -->
+    <div class="project">
+      <h3>Artifact 2: AI Hello Habit Tracker</h3>
+      <p><b>Objective:</b> Build chatbot to track daily health habits.</p>
+      <p><b>Tools:</b> Python, Chatbot Logic</p>
+      <p><b>Description:</b> Conversational AI supports personal wellness and habit tracking.</p>
+      <p>Link: <a href="https://chatgpt.com/share/69ac9270-d678-800e-ad03-0c3fa9f6428a" target="_blank">View Artifact 2</a></p>
+    </div>
 
-<div class="card">
-<h3>Precision</h3>
-<div class="metric">89%</div>
-</div>
+    <!-- Artifact 3 -->
+    <div class="project">
+      <h3>Artifact 3: AI Brainstorming & Research (STORM AI)</h3>
+      <p><b>Objective:</b> Enhance brainstorming, research, and insights using AI tools.</p>
+      <p><b>Tools:</b> STORM AI, ChatGPT, Online Sources, Team Collaboration</p>
+      <p><b>Description:</b> AI-assisted research to improve data analysis, collaboration, and insight development.</p>
+    </div>
 
-<div class="card">
-<h3>Recall</h3>
-<div class="metric">95%</div>
-</div>
-</div>
-
+    <!-- Artifact 4 -->
+    <div class="project">
+      <h3>Artifact 4: Interactive AI Pipeline</h3>
+      <p><b>Objective:</b> Visualize AI/ML data pipelines interactively.</p>
+      <p><b>Tools:</b> Three.js, D3.js, Chart.js</p>
+      <p><b>Description:</b> Real-time ML pipeline diagrams, interactive dashboards, and 3D data visualization.</p>
+      <p>Demo: <a href="#" target="_blank">Live Interactive Pipeline</a></p>
+    </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="fade">
-<h2>Let’s Connect</h2>
-
-<div class="card">
-<p><b>Name:</b> Satish Padanabuni</p>
-<p><b>Role:</b> Developer</p>
-<p><b>Email:</b> satish.padmanabuni@myemail.indwes.edu</p>
-<p><b>GitHub:</b> https://github.com/Satishqw</p>
-<p><b>Focus:</b> Analytics, AI, and Generative AI Engineering</p>
-</div>
-
+<!-- Contact Section -->
+<section class="contact" data-aos="fade-up">
+  <h2>Let's Connect</h2>
+  <p>Name: Satish Padmanabuni</p>
+  <p>Role: Developer</p>
+  <p>Email: satish.padmanabuni@myemail.indwes.edu</p>
+  <p>GitHub: <a href="https://github.com/satishpadmanabuni" target="_blank">github.com/satishpadmanabuni</a></p>
+  <p>Focus: Analytics, AI, and Generative AI Engineering</p>
 </section>
 
-<!-- CHATBOT -->
-<div class="chatbot">
-<div><b>🤖 AI Assistant</b></div>
-<div id="chat"></div>
-<input id="input" placeholder="Ask me..." onkeypress="talk(event)">
-</div>
-
-<footer>
-<p>© 2026 Satish Padmanabuni | AI Portfolio</p>
+<!-- Footer -->
+<footer data-aos="fade-up">
+  <p>© 2026 Satish Padmanabuni</p>
 </footer>
 
+<!-- Scripts -->
+
+<!-- Initialize AOS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-// animation
-const faders=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-faders.forEach(el=>{
-const top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-100){el.classList.add('show');}
+  AOS.init({ duration: 1000, once: true });
+</script>
+
+<!-- Particles.js Init -->
+<script>
+tsParticles.load("particles-js", {
+  particles: {
+    number: { value: 80 },
+    size: { value: 3 },
+    move: { enable: true, speed: 1 },
+    color: { value: "#38bdf8" },
+    line_linked: { enable: true, distance: 120, color: "#38bdf8", opacity: 0.4, width: 1 }
+  },
+  interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
 });
-});
+</script>
 
-// chatbot
-function talk(e){
-if(e.key==='Enter'){
-let input=document.getElementById('input').value;
-let chat=document.getElementById('chat');
-
-let reply="I help explain AI, ML, and your portfolio projects.";
-
-if(input.toLowerCase().includes("artifact"))
-reply="Artifacts show real AI/ML skills with projects.";
-
-chat.innerHTML+=`<div>👤 ${input}</div>`;
-chat.innerHTML+=`<div>🤖 ${reply}</div>`;
-
-document.getElementById('input').value="";
+<!-- Three.js 3D Mesh -->
+<script>
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas'), alpha:true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+const material = new THREE.MeshBasicMaterial({ color: 0x38bdf8, wireframe: true });
+const torus = new THREE.Mesh(geometry, material);
+scene.add(torus);
+camera.position.z = 50;
+function animate(){
+  requestAnimationFrame(animate);
+  torus.rotation.x += 0.005;
+  torus.rotation.y += 0.01;
+  renderer.render(scene, camera);
 }
-}
+animate();
 </script>
 
 </body>
