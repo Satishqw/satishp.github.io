@@ -1,194 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Satish Padmanabuni | AI & Full Stack Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Satish AI/ML Portfolio</title>
 
-<!-- AOS for scroll animations -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<!-- Particles.js -->
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<!-- Three.js -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.159.0/build/three.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f7fa;
+    }
 
-<style>
-  /* Reset & Base */
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body{font-family: 'Roboto', sans-serif; color:white; overflow-x:hidden;}
+    nav {
+      background: #2c3e50;
+      padding: 15px;
+      text-align: center;
+    }
 
-  /* Background Layers */
-  #bgCanvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2; }
-  #particles-js { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-  /* Header */
-  .hero {
-    height:90vh; display:flex; justify-content:center; align-items:center; text-align:center;
-    background: linear-gradient(-45deg,#0f172a,#1e293b,#020617,#1e293b);
-    background-size: 400% 400%;
-    animation: gradientBG 20s ease infinite;
-    position:relative;
-  }
-  @keyframes gradientBG { 0% {background-position:0% 50%;} 50% {background-position:100% 50%;} 100% {background-position:0% 50%;} }
-  .hero h1 { font-size:50px; color:#38bdf8; text-shadow: 0 0 15px #38bdf8; margin-bottom:10px; }
-  .hero p { color:#cbd5f5; text-shadow: 0 0 8px #38bdf8; margin:5px; font-size:18px; }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-  /* Sections */
-  section { padding:40px 20px; max-width:1200px; margin:auto; }
-  h2 { border-bottom:3px solid #38bdf8; padding-bottom:10px; margin-bottom:20px; }
+    .hero {
+      text-align: center;
+      padding: 60px;
+      background: #ecf0f1;
+    }
 
-  /* Cards & Grid */
-  .skills, .projects { display:grid; grid-gap:20px; }
-  .skills { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-bottom:40px; }
-  .projects { grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); margin-bottom:40px; }
-  .card, .project { background: rgba(30,41,59,0.9); padding:20px; border-radius:12px; transition: transform 0.3s, box-shadow 0.3s; }
-  .card:hover, .project:hover { transform:scale(1.05); box-shadow: 0 0 20px #38bdf8; }
-  img{width:100%; border-radius:8px; margin-bottom:10px;}
-  a{color:#38bdf8; text-decoration:none;}
-  a:hover{text-decoration:underline;}
+    .section {
+      padding: 40px;
+    }
 
-  /* Artifact Progress Bars */
-  .progress-container { background:#ddd; width:100%; border-radius:5px; margin-bottom:10px; }
-  .progress { background:#4CAF50; color:white; padding:5px; border-radius:5px; text-align:center; }
+    .artifact-card {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-  /* Contact */
-  .contact p, .contact a { margin:5px 0; font-size:16px; }
-</style>
+    .artifact-card h2 {
+      color: #2c3e50;
+    }
+
+    .artifact-card p {
+      line-height: 1.6;
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- 3D Canvas -->
-<canvas id="bgCanvas"></canvas>
-<!-- Particle Background -->
-<div id="particles-js"></div>
+<!-- NAVBAR -->
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#artifacts">Projects</a>
+</nav>
 
-<!-- Hero Section -->
-<header class="hero" data-aos="fade-down">
-  <div>
-    <h1>Satish Padmanabuni</h1>
-    <p>AI & Full Stack Developer | Generative AI Engineer</p>
-    <p>Focus: Analytics, AI, and Generative AI Engineering</p>
-  </div>
-</header>
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>Satish Padmanabuni</h1>
+  <p>AI/ML Developer | ServiceNow Specialist</p>
+  <p>Building intelligent systems for real-world impact</p>
+</section>
 
-<!-- About Me -->
-<section data-aos="fade-up">
+<!-- ABOUT -->
+<section id="about" class="section">
   <h2>About Me</h2>
   <p>
-  I aim to become a Generative AI Engineer, building intelligent assistants and retrieval-driven systems combining AI, data, and business context. With 5+ years of experience in full-stack development using React, Java, Spring Boot, Node.js, and AWS, I design scalable microservices, CI/CD pipelines, and cloud-based architectures. I am passionate about integrating AI/ML into practical solutions that enhance decision-making and business impact. My portfolio reflects my growth from enterprise development to AI/ML solution design.
+    I am a ServiceNow Developer and AI/ML enthusiast with experience in building 
+    automation solutions and intelligent systems. My focus is on solving real-world 
+    problems using practical and scalable approaches.
   </p>
 </section>
 
-<!-- Technical Skills -->
-<section data-aos="fade-up">
-  <h2>Technical Skills</h2>
-  <div class="skills">
-    <div class="card">Frontend: React.js, Angular, HTML5, CSS3, Redux, Bootstrap, AJAX</div>
-    <div class="card">Backend: Java 8, Spring Boot, Node.js, REST APIs, Microservices</div>
-    <div class="card">Cloud & DevOps: AWS, Docker, Kubernetes, Jenkins, CI/CD</div>
-    <div class="card">Databases: MongoDB, PostgreSQL, MySQL, Oracle, Cassandra</div>
-    <div class="card">Testing & Tools: JUnit, Mockito, Jest, Jasmine, Git, Bitbucket</div>
+<!-- ARTIFACTS -->
+<section id="artifacts" class="section">
+  <h1>My Projects</h1>
+
+  <!-- Artifact 1 -->
+  <div class="artifact-card">
+    <h2>Artifact 1: Smart Incident Intake System</h2>
+    <p><strong>Description:</strong> Automated incident classification and prioritization.</p>
+    <p><strong>Tools:</strong> ServiceNow, JavaScript</p>
+    <p><strong>Results:</strong> Reduced manual effort by 40%</p>
+    <p><strong>Key Takeaways:</strong> Learned automation workflows and scripting logic.</p>
   </div>
-</section>
 
-<!-- Artifact Portfolio -->
-<section data-aos="fade-up">
-  <h2>Artifact Portfolio Projects</h2>
-  <div class="projects">
-    <!-- Artifact 1 -->
-    <div class="project">
-      <h3>Artifact 1: AI/ML Timeline</h3>
-      <p><b>Objective:</b> Document AI/ML learning journey.</p>
-      <p><b>Tools Used:</b> Research, Self-Assessment</p>
-      <p><b>Description:</b> Roadmap outlining learning goals, skill development plan, and future AI career direction.</p>
-      <p>Link: <a href="https://claude.ai/public/artifacts/50ec449b-a242-4d48-bad4-ad53ae4cb503" target="_blank">View Artifact 1</a></p>
-    </div>
-
-    <!-- Artifact 2 -->
-    <div class="project">
-      <h3>Artifact 2: AI Hello Habit Tracker</h3>
-      <p><b>Objective:</b> Build chatbot to track daily health habits.</p>
-      <p><b>Tools:</b> Python, Chatbot Logic</p>
-      <p><b>Description:</b> Conversational AI supports personal wellness and habit tracking.</p>
-      <p>Link: <a href="https://chatgpt.com/share/69ac9270-d678-800e-ad03-0c3fa9f6428a" target="_blank">View Artifact 2</a></p>
-    </div>
-
-    <!-- Artifact 3 -->
-    <div class="project">
-      <h3>Artifact 3: AI Brainstorming & Research (STORM AI)</h3>
-      <p><b>Objective:</b> Enhance brainstorming, research, and insights using AI tools.</p>
-      <p><b>Tools:</b> STORM AI, ChatGPT, Online Sources, Team Collaboration</p>
-      <p><b>Description:</b> AI-assisted research to improve data analysis, collaboration, and insight development.</p>
-    </div>
-
-    <!-- Artifact 4 -->
-    <div class="project">
-      <h3>Artifact 4: Interactive AI Pipeline</h3>
-      <p><b>Objective:</b> Visualize AI/ML data pipelines interactively.</p>
-      <p><b>Tools:</b> Three.js, D3.js, Chart.js</p>
-      <p><b>Description:</b> Real-time ML pipeline diagrams, interactive dashboards, and 3D data visualization.</p>
-      <p>Demo: <a href="#" target="_blank">Live Interactive Pipeline</a></p>
-    </div>
+  <!-- Artifact 2 -->
+  <div class="artifact-card">
+    <h2>Artifact 2: CMDB Integration System</h2>
+    <p><strong>Description:</strong> Linked incidents to CI for auto assignment.</p>
+    <p><strong>Tools:</strong> ServiceNow CMDB</p>
+    <p><strong>Results:</strong> Improved assignment accuracy by 30%</p>
+    <p><strong>Key Takeaways:</strong> Learned CI relationships and data flow.</p>
   </div>
+
+  <!-- Artifact 3 -->
+  <div class="artifact-card">
+    <h2>Artifact 3: AI-based Categorization Model</h2>
+    <p><strong>Description:</strong> Used ML to categorize tickets automatically.</p>
+    <p><strong>Tools:</strong> Python, ML</p>
+    <p><strong>Results:</strong> Increased classification accuracy by 25%</p>
+    <p><strong>Key Takeaways:</strong> Hands-on experience with ML models.</p>
+  </div>
+
+  <!-- Artifact 4 -->
+  <div class="artifact-card">
+    <h2>Artifact 4: REST API Integration</h2>
+    <p><strong>Description:</strong> Integrated external systems using APIs.</p>
+    <p><strong>Tools:</strong> REST API, JSON</p>
+    <p><strong>Results:</strong> Improved data sync efficiency</p>
+    <p><strong>Key Takeaways:</strong> Learned API integration and debugging.</p>
+  </div>
+
+  <!-- Artifact 5 -->
+  <div class="artifact-card">
+    <h2>Artifact 5: AI Ethics Case Study</h2>
+    <p><strong>Description:</strong> Analysis of AI hallucination risks.</p>
+    <p><strong>Tools:</strong> Research, Critical Thinking</p>
+    <p><strong>Results:</strong> Identified key ethical gaps</p>
+    <p><strong>Key Takeaways:</strong> Importance of verification and responsibility.</p>
+  </div>
+
 </section>
-
-<!-- Contact Section -->
-<section class="contact" data-aos="fade-up">
-  <h2>Let's Connect</h2>
-  <p>Name: Satish Padmanabuni</p>
-  <p>Role: Developer</p>
-  <p>Email: satish.padmanabuni@myemail.indwes.edu</p>
-  <p>GitHub: <a href="https://github.com/satishpadmanabuni" target="_blank">github.com/satishpadmanabuni</a></p>
-  <p>Focus: Analytics, AI, and Generative AI Engineering</p>
-</section>
-
-<!-- Footer -->
-<footer data-aos="fade-up">
-  <p>© 2026 Satish Padmanabuni</p>
-</footer>
-
-<!-- Scripts -->
-
-<!-- Initialize AOS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({ duration: 1000, once: true });
-</script>
-
-<!-- Particles.js Init -->
-<script>
-tsParticles.load("particles-js", {
-  particles: {
-    number: { value: 80 },
-    size: { value: 3 },
-    move: { enable: true, speed: 1 },
-    color: { value: "#38bdf8" },
-    line_linked: { enable: true, distance: 120, color: "#38bdf8", opacity: 0.4, width: 1 }
-  },
-  interactivity: { events: { onhover: { enable: true, mode: "repulse" } } }
-});
-</script>
-
-<!-- Three.js 3D Mesh -->
-<script>
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bgCanvas'), alpha:true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
-const material = new THREE.MeshBasicMaterial({ color: 0x38bdf8, wireframe: true });
-const torus = new THREE.Mesh(geometry, material);
-scene.add(torus);
-camera.position.z = 50;
-function animate(){
-  requestAnimationFrame(animate);
-  torus.rotation.x += 0.005;
-  torus.rotation.y += 0.01;
-  renderer.render(scene, camera);
-}
-animate();
-</script>
 
 </body>
 </html>
